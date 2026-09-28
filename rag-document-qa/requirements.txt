@@ -1,0 +1,27 @@
+# Runtime dependencies, pinned to the versions this project was built and
+# evaluated against.
+#
+# Regenerated from a clean virtualenv and verified with `pip install -r
+# requirements.txt` on Python 3.11. The previous version of this project
+# imported langchain_community without declaring it, so the repository did not
+# install from its own requirements file; every import is now declared here.
+
+# --- core pipeline -------------------------------------------------------
+langchain-core==1.5.3
+langchain-text-splitters==1.1.2
+langchain-chroma==1.1.0
+chromadb==1.5.9
+pypdf==6.15.0
+
+# --- corpus downloader ---------------------------------------------------
+requests==2.34.2
+
+# --- configuration -------------------------------------------------------
+python-dotenv==1.2.2
+
+# --- optional providers --------------------------------------------------
+# Both are only imported when the matching provider is selected. The offline
+# providers (the default) need neither, so the project runs with no Ollama
+# server and no API key.
+langchain-ollama==1.1.0     # RAG_EMBEDDING_PROVIDER=ollama
+langchain-anthropic==1.5.4  # RAG_LLM_PROVIDER=anthropic

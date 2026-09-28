@@ -1,0 +1,141 @@
+{
+  "corpus_name": "Foundational AI/ML papers (arXiv)",
+  "description": "Six widely-cited, open-access machine-learning papers used as the knowledge base for this RAG system. The PDFs are deliberately NOT committed to this repository - see redistribution_note - they are downloaded on demand by scripts/fetch_corpus.py into corpus/pdfs/, which is gitignored.",
+  "redistribution_note": "arXiv papers are made available under a range of licences. The arXiv.org perpetual non-exclusive licence grants arXiv the right to distribute, but does not automatically grant third parties the right to redistribute the PDF. Rather than guess, this project ships pointers and a downloader instead of the files themselves. Each entry records the licence arXiv reports on the paper's abstract page; copyright remains with the authors.",
+  "licence_reference": "https://arxiv.org/licenses",
+  "verified_on": "2026-08-10",
+  "papers": [
+    {
+      "short_name": "transformer",
+      "arxiv_id": "1706.03762",
+      "version": "v7",
+      "title": "Attention Is All You Need",
+      "authors": [
+        "Ashish Vaswani",
+        "Noam Shazeer",
+        "Niki Parmar",
+        "Jakob Uszkoreit",
+        "Llion Jones",
+        "Aidan N. Gomez",
+        "Lukasz Kaiser",
+        "Illia Polosukhin"
+      ],
+      "year": 2017,
+      "licence": "arXiv.org perpetual, non-exclusive license 1.0",
+      "licence_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "abs_url": "https://arxiv.org/abs/1706.03762",
+      "pdf_url": "https://arxiv.org/pdf/1706.03762v7",
+      "filename": "1706.03762.pdf"
+    },
+    {
+      "short_name": "bert",
+      "arxiv_id": "1810.04805",
+      "version": "v2",
+      "title": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "authors": [
+        "Jacob Devlin",
+        "Ming-Wei Chang",
+        "Kenton Lee",
+        "Kristina Toutanova"
+      ],
+      "year": 2018,
+      "licence": "arXiv.org perpetual, non-exclusive license 1.0",
+      "licence_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "abs_url": "https://arxiv.org/abs/1810.04805",
+      "pdf_url": "https://arxiv.org/pdf/1810.04805v2",
+      "filename": "1810.04805.pdf"
+    },
+    {
+      "short_name": "gpt3",
+      "arxiv_id": "2005.14165",
+      "version": "v4",
+      "title": "Language Models are Few-Shot Learners",
+      "authors": [
+        "Tom B. Brown",
+        "Benjamin Mann",
+        "Nick Ryder",
+        "Melanie Subbiah",
+        "Jared Kaplan",
+        "Prafulla Dhariwal",
+        "et al."
+      ],
+      "year": 2020,
+      "licence": "arXiv.org perpetual, non-exclusive license 1.0",
+      "licence_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "abs_url": "https://arxiv.org/abs/2005.14165",
+      "pdf_url": "https://arxiv.org/pdf/2005.14165v4",
+      "filename": "2005.14165.pdf"
+    },
+    {
+      "short_name": "rag",
+      "arxiv_id": "2005.11401",
+      "version": "v4",
+      "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+      "authors": [
+        "Patrick Lewis",
+        "Ethan Perez",
+        "Aleksandra Piktus",
+        "Fabio Petroni",
+        "Vladimir Karpukhin",
+        "Naman Goyal",
+        "Heinrich Kuttler",
+        "Mike Lewis",
+        "Wen-tau Yih",
+        "Tim Rocktaschel",
+        "Sebastian Riedel",
+        "Douwe Kiela"
+      ],
+      "year": 2020,
+      "licence": "arXiv.org perpetual, non-exclusive license 1.0",
+      "licence_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "abs_url": "https://arxiv.org/abs/2005.11401",
+      "pdf_url": "https://arxiv.org/pdf/2005.11401v4",
+      "filename": "2005.11401.pdf"
+    },
+    {
+      "short_name": "lora",
+      "arxiv_id": "2106.09685",
+      "version": "v2",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": [
+        "Edward J. Hu",
+        "Yelong Shen",
+        "Phillip Wallis",
+        "Zeyuan Allen-Zhu",
+        "Yuanzhi Li",
+        "Shean Wang",
+        "Lu Wang",
+        "Weizhu Chen"
+      ],
+      "year": 2021,
+      "licence": "arXiv.org perpetual, non-exclusive license 1.0",
+      "licence_url": "http://arxiv.org/licenses/nonexclusive-distrib/1.0/",
+      "abs_url": "https://arxiv.org/abs/2106.09685",
+      "pdf_url": "https://arxiv.org/pdf/2106.09685v2",
+      "filename": "2106.09685.pdf"
+    },
+    {
+      "short_name": "cot",
+      "arxiv_id": "2201.11903",
+      "version": "v6",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "authors": [
+        "Jason Wei",
+        "Xuezhi Wang",
+        "Dale Schuurmans",
+        "Maarten Bosma",
+        "Brian Ichter",
+        "Fei Xia",
+        "Ed Chi",
+        "Quoc Le",
+        "Denny Zhou"
+      ],
+      "year": 2022,
+      "licence": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "licence_url": "http://creativecommons.org/licenses/by/4.0/",
+      "abs_url": "https://arxiv.org/abs/2201.11903",
+      "pdf_url": "https://arxiv.org/pdf/2201.11903v6",
+      "filename": "2201.11903.pdf"
+    }
+  ]
+}

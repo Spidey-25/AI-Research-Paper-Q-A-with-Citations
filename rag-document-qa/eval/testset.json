@@ -1,0 +1,182 @@
+{
+  "meta": {
+    "name": "rag-document-qa hand-built evaluation set",
+    "version": "1.0",
+    "author": "Vineet Kumar",
+    "created": "2026-08-10",
+    "description": "20 hand-written question/answer pairs against the six-paper arXiv corpus defined in corpus/manifest.json. 15 are answerable from the corpus; 5 are deliberately out of corpus and the only correct behaviour is the refusal string. Questions were written by reading the papers, not by inspecting model output, and every expected answer was checked against the source paper.",
+    "scoring_notes": "answer_must_contain is a list of groups; each group is a list of acceptable surface forms and the answer must match at least one form from every group. Matching is case-insensitive on whitespace-normalised text. This is deliberately a keyword/containment check rather than an LLM judge, so the score is reproducible and cost-free.",
+    "counts": {
+      "in_corpus": 15,
+      "out_of_corpus": 5,
+      "total": 20
+    }
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "type": "in_corpus",
+      "question": "How many identical layers are in the Transformer's encoder stack?",
+      "expected_answer": "The encoder is composed of a stack of N = 6 identical layers, each with a multi-head self-attention sub-layer and a position-wise feed-forward sub-layer.",
+      "expected_sources": ["1706.03762"],
+      "answer_must_contain": [["n=6", "six", " 6 "], ["identical layers", "layers"]]
+    },
+    {
+      "id": "Q02",
+      "type": "in_corpus",
+      "question": "Why does scaled dot-product attention divide the dot products by the square root of d_k?",
+      "expected_answer": "For large values of d_k the dot products grow large in magnitude, pushing the softmax into regions with extremely small gradients; scaling by 1/sqrt(d_k) counteracts this.",
+      "expected_sources": ["1706.03762"],
+      "answer_must_contain": [["softmax"], ["small gradients", "gradients"]]
+    },
+    {
+      "id": "Q03",
+      "type": "in_corpus",
+      "question": "What is the value of d_model in the Transformer, and why must all sub-layers share it?",
+      "expected_answer": "All sub-layers and the embedding layers produce outputs of dimension d_model = 512, which is what makes the residual connections around each sub-layer possible.",
+      "expected_sources": ["1706.03762"],
+      "answer_must_contain": [["512"], ["residual", "dimension", "sub-layers"]]
+    },
+    {
+      "id": "Q04",
+      "type": "in_corpus",
+      "question": "What BLEU score did the Transformer achieve on the WMT 2014 English-to-German translation task?",
+      "expected_answer": "28.4 BLEU, more than 2 BLEU better than the best previously reported models including ensembles.",
+      "expected_sources": ["1706.03762"],
+      "answer_must_contain": [["28.4"], ["bleu"]]
+    },
+    {
+      "id": "Q05",
+      "type": "in_corpus",
+      "question": "What percentage of WordPiece tokens does BERT mask during masked language model pre-training?",
+      "expected_answer": "15% of all WordPiece tokens in each sequence are masked at random.",
+      "expected_sources": ["1810.04805"],
+      "answer_must_contain": [["15%"], ["mask"]]
+    },
+    {
+      "id": "Q06",
+      "type": "in_corpus",
+      "question": "When BERT selects a token for masking, what does it replace it with?",
+      "expected_answer": "The [MASK] token 80% of the time, a random token 10% of the time, and the unchanged original token 10% of the time.",
+      "expected_sources": ["1810.04805"],
+      "answer_must_contain": [["80%"], ["10%"], ["random token", "random"]]
+    },
+    {
+      "id": "Q07",
+      "type": "in_corpus",
+      "question": "How many parameters do BERT-BASE and BERT-LARGE have?",
+      "expected_answer": "BERT-BASE has 110M parameters (12 layers, hidden size 768, 12 heads); BERT-LARGE has 340M parameters (24 layers, hidden size 1024, 16 heads).",
+      "expected_sources": ["1810.04805"],
+      "answer_must_contain": [["110m"], ["340m"]]
+    },
+    {
+      "id": "Q08",
+      "type": "in_corpus",
+      "question": "Which corpora were used to pre-train BERT and how large were they?",
+      "expected_answer": "BooksCorpus (800M words) and English Wikipedia (2,500M words).",
+      "expected_sources": ["1810.04805"],
+      "answer_must_contain": [["bookscorpus"], ["800m"], ["wikipedia"]]
+    },
+    {
+      "id": "Q09",
+      "type": "in_corpus",
+      "question": "How many parameters does GPT-3 have and how many layers does the largest model use?",
+      "expected_answer": "GPT-3 has 175 billion parameters, and the largest model has 96 layers with d_model of 12288 and 96 attention heads.",
+      "expected_sources": ["2005.14165"],
+      "answer_must_contain": [["175", "175.0b"], ["96"]]
+    },
+    {
+      "id": "Q10",
+      "type": "in_corpus",
+      "question": "In the GPT-3 paper, how many examples K are typically used in the few-shot setting?",
+      "expected_answer": "K is typically set in the range of 10 to 100, which is how many examples fit in the model's context window.",
+      "expected_sources": ["2005.14165"],
+      "answer_must_contain": [["10 to 100", "10 and 100"], ["few-shot", "context window"]]
+    },
+    {
+      "id": "Q11",
+      "type": "in_corpus",
+      "question": "What is the difference between the RAG-Sequence and RAG-Token models?",
+      "expected_answer": "RAG-Sequence uses the same retrieved document to generate the complete output sequence, while RAG-Token can draw a different latent document for each target token.",
+      "expected_sources": ["2005.11401"],
+      "answer_must_contain": [["rag-sequence"], ["rag-token"], ["each target token", "per token", "different latent document"]]
+    },
+    {
+      "id": "Q12",
+      "type": "in_corpus",
+      "question": "Which retriever architecture does the RAG paper use, and what search problem does it solve?",
+      "expected_answer": "It uses Dense Passage Retriever (DPR), a bi-encoder architecture; finding the top-k documents is a Maximum Inner Product Search (MIPS) problem.",
+      "expected_sources": ["2005.11401"],
+      "answer_must_contain": [["dpr", "dense passage retriever"], ["bi-encoder"], ["maximum inner product search", "mips"]]
+    },
+    {
+      "id": "Q13",
+      "type": "in_corpus",
+      "question": "Which components does the RAG paper keep fixed during training, and why?",
+      "expected_answer": "The document encoder and the document index are kept fixed because updating the document encoder would require periodically re-building the index; only the query encoder and the BART generator are fine-tuned.",
+      "expected_sources": ["2005.11401"],
+      "answer_must_contain": [["document encoder"], ["fixed", "costly"], ["query encoder", "bart"]]
+    },
+    {
+      "id": "Q14",
+      "type": "in_corpus",
+      "question": "How are the LoRA matrices A and B initialised, and what does that guarantee at the start of training?",
+      "expected_answer": "A uses a random Gaussian initialisation and B is initialised to zero, so the update BA is zero at the beginning of training and the model starts from the pre-trained weights.",
+      "expected_sources": ["2106.09685"],
+      "answer_must_contain": [["gaussian"], ["zero"], ["beginning of training", "start of training", "training"]]
+    },
+    {
+      "id": "Q15",
+      "type": "in_corpus",
+      "question": "How many chain-of-thought exemplars were used to prompt PaLM 540B on GSM8K?",
+      "expected_answer": "Eight manually composed chain-of-thought exemplars; for AQuA, which is multiple choice, four exemplars were used.",
+      "expected_sources": ["2201.11903"],
+      "answer_must_contain": [["eight", " 8 "], ["exemplars"]]
+    },
+    {
+      "id": "Q16",
+      "type": "out_of_corpus",
+      "question": "What is the capital city of Australia?",
+      "expected_answer": "REFUSAL",
+      "expected_sources": [],
+      "answer_must_contain": [],
+      "notes": "Common-knowledge fact the underlying LLM certainly knows. Answering it means the model ignored the grounding instruction."
+    },
+    {
+      "id": "Q17",
+      "type": "out_of_corpus",
+      "question": "What revenue did Woolworths Group report in FY2024?",
+      "expected_answer": "REFUSAL",
+      "expected_sources": [],
+      "answer_must_contain": [],
+      "notes": "Plausible business question for an analyst tool, entirely absent from the corpus."
+    },
+    {
+      "id": "Q18",
+      "type": "out_of_corpus",
+      "question": "What learning rate schedule does the Adam optimiser use to train a convolutional network on ImageNet?",
+      "expected_answer": "REFUSAL",
+      "expected_sources": [],
+      "answer_must_contain": [],
+      "notes": "The hardest refusal case: it is on-topic ML vocabulary that overlaps heavily with corpus terms, but the corpus does not contain the answer. This is where lexical retrieval is most likely to hallucinate."
+    },
+    {
+      "id": "Q19",
+      "type": "out_of_corpus",
+      "question": "Which team won the 2023 Cricket World Cup final?",
+      "expected_answer": "REFUSAL",
+      "expected_sources": [],
+      "answer_must_contain": [],
+      "notes": "Sports fact; the previous version of this project indexed cricket documents, so this is a useful regression check that the corpus really did change."
+    },
+    {
+      "id": "Q20",
+      "type": "out_of_corpus",
+      "question": "What is the current cash rate set by the Reserve Bank of Australia?",
+      "expected_answer": "REFUSAL",
+      "expected_sources": [],
+      "answer_must_contain": [],
+      "notes": "Time-sensitive fact. Even a correct-sounding answer would be ungrounded and unciteable."
+    }
+  ]
+}
